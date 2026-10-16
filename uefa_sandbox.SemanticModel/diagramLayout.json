@@ -7,7 +7,47 @@
         "x": 0,
         "y": 0
       },
-      "nodes": [],
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "fact_team_stats",
+          "nodeLineageTag": "f3c9c0bd-ced4-49fc-bbfe-95958ad06cf1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 293,
+            "y": 0
+          },
+          "nodeIndex": "dim_team",
+          "nodeLineageTag": "4829a4ed-02a4-455a-a058-fe01f52e4734",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 577,
+            "y": 0
+          },
+          "nodeIndex": "players_summary",
+          "nodeLineageTag": "175cb4fe-5392-4774-bc4a-a81ce350cf64",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
       "name": "Všechny tabulky",
       "zoomValue": 100,
       "pinKeyFieldsToTop": false,

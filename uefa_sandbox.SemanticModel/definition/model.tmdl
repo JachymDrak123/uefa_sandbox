@@ -11,5 +11,11 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBI_QueryOrder = ["fact_team_stats","dim_team","players_summary"]
+
+ref table fact_team_stats
+ref table dim_team
+ref table players_summary
+
 ref cultureInfo cs-CZ
 

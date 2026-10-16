@@ -1,0 +1,51 @@
+table dim_team
+	lineageTag: 4829a4ed-02a4-455a-a058-fe01f52e4734
+
+	column team_id
+		dataType: string
+		lineageTag: 48292660-a599-4421-ad4e-436665edd675
+		summarizeBy: none
+		sourceColumn: team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_name
+		dataType: string
+		lineageTag: 21a6f309-6605-4070-9433-39284a045041
+		summarizeBy: none
+		sourceColumn: team_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_code
+		dataType: string
+		lineageTag: 7e65af09-cfb9-411f-a881-20ad7e23ae07
+		summarizeBy: none
+		sourceColumn: team_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_code
+		dataType: string
+		lineageTag: bf3aab88-1b6b-4ae8-ba5f-23132b3ef057
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_team = m
+		mode: import
+		source =
+				let
+				    Zdroj = Csv.Document(File.Contents("C:\Users\JACHYM\Documents\6_PROJECTS\practice_projects\DATA\uefa_nations_league\teams_summary.csv"),[Delimiter=",", Columns=45, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Záhlaví se zvýšenou úrovní" = Table.PromoteHeaders(Zdroj, [PromoteAllScalars=true]),
+				    #"Změněný typ" = Table.TransformColumnTypes(#"Záhlaví se zvýšenou úrovní",{{"team_id", Int64.Type}, {"team_name", type text}, {"team_code", type text}, {"country_code", type text}, {"matches_appearance", Int64.Type}, {"matches_win", type text}, {"matches_draw", type text}, {"matches_loss", type text}, {"goals", type text}, {"goals_scored_with_right", type text}, {"goals_scored_with_left", type text}, {"goals_scored_head", type text}, {"goals_scored_other", type text}, {"goals_scored_inside_penalty_area", type text}, {"goals_scored_outside_penalty_area", type text}, {"penalty_scored", type text}, {"attempts", type text}, {"attempts_on_target", type text}, {"attempts_off_target", type text}, {"attempts_blocked", type text}, {"passes_accuracy", type text}, {"passes_attempted", type text}, {"passes_completed", type text}, {"ball_possession", type text}, {"cross_accuracy", type text}, {"cross_attempted", type text}, {"cross_completed", type text}, {"free_kick", type text}, {"attacks", type text}, {"assists", type text}, {"corners", type text}, {"offsides", type text}, {"recovered_ball", type text}, {"tackles", type text}, {"clearance_attempted", type text}, {"saves", type text}, {"goals_conceded", type text}, {"own_goal_conceded", type text}, {"saves_on_penalty", type text}, {"clean_sheet", type text}, {"punches", type text}, {"fouls_committed", type text}, {"fouls_suffered", type text}, {"yellow_cards", type text}, {"red_cards", type text}}),
+				    #"Odebrané sloupce" = Table.RemoveColumns(#"Změněný typ",{"matches_appearance", "matches_win", "matches_draw", "matches_loss", "goals", "goals_scored_with_right", "goals_scored_with_left", "goals_scored_head", "goals_scored_other", "goals_scored_inside_penalty_area", "goals_scored_outside_penalty_area", "penalty_scored", "attempts", "attempts_on_target", "attempts_off_target", "attempts_blocked", "passes_accuracy", "passes_attempted", "passes_completed", "ball_possession", "cross_accuracy", "cross_attempted", "cross_completed", "free_kick", "attacks", "assists", "corners", "offsides", "recovered_ball", "tackles", "clearance_attempted", "saves", "goals_conceded", "own_goal_conceded", "saves_on_penalty", "clean_sheet", "punches", "fouls_committed", "fouls_suffered", "yellow_cards", "red_cards"}),
+				    #"Změněný typ1" = Table.TransformColumnTypes(#"Odebrané sloupce",{{"team_id", type text}})
+				in
+				    #"Změněný typ1"
+
+	annotation PBI_NavigationStepName = Navigace
+
+	annotation PBI_ResultType = Table
+
