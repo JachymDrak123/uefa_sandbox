@@ -1,4 +1,4 @@
-table players_summary
+table fact_player_stats
 	lineageTag: 175cb4fe-5392-4774-bc4a-a81ce350cf64
 
 	column player_id
@@ -27,16 +27,20 @@ table players_summary
 
 	column team_id
 		dataType: string
+		isHidden
 		lineageTag: 30b5ea90-b3df-4591-8f5f-455f0f0e7017
 		summarizeBy: none
 		sourceColumn: team_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column minutes_played_official
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 2496cf12-ad56-4851-8ad1-72845b7278c7
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: minutes_played_official
 
 		annotation SummarizationSetBy = Automatic
@@ -68,317 +72,7 @@ table players_summary
 
 		annotation SummarizationSetBy = Automatic
 
-	column top_speed
-		dataType: double
-		lineageTag: 68b9ac56-e5c9-48e6-9701-56f160ee66a3
-		summarizeBy: sum
-		sourceColumn: top_speed
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column distance_covered
-		dataType: double
-		lineageTag: 87235aa2-f73c-45d4-96a3-7ef5ae21584a
-		summarizeBy: sum
-		sourceColumn: distance_covered
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column goals_scored_with_right
-		dataType: int64
-		formatString: 0
-		lineageTag: 94e8dfc9-bf2d-4d78-806d-238c5665a244
-		summarizeBy: sum
-		sourceColumn: goals_scored_with_right
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_scored_with_left
-		dataType: int64
-		formatString: 0
-		lineageTag: a793a817-62a8-4a3c-ad5e-ca4bb12fe8e8
-		summarizeBy: sum
-		sourceColumn: goals_scored_with_left
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_scored_head
-		dataType: int64
-		formatString: 0
-		lineageTag: c2cd6d44-9d68-4abc-9e3a-f40961cf2009
-		summarizeBy: sum
-		sourceColumn: goals_scored_head
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_scored_other
-		dataType: int64
-		formatString: 0
-		lineageTag: d57e6679-a0a5-425d-b05d-2ae5ebb4fe13
-		summarizeBy: sum
-		sourceColumn: goals_scored_other
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_scored_inside_penalty_area
-		dataType: int64
-		formatString: 0
-		lineageTag: 51a74b88-5e82-429c-a7c8-26d3e8d36b73
-		summarizeBy: sum
-		sourceColumn: goals_scored_inside_penalty_area
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_scored_outside_penalty_area
-		dataType: int64
-		formatString: 0
-		lineageTag: aec89259-9685-42ea-8d1e-ffe890ca9658
-		summarizeBy: sum
-		sourceColumn: goals_scored_outside_penalty_area
-
-		annotation SummarizationSetBy = Automatic
-
-	column penalty_scored
-		dataType: int64
-		formatString: 0
-		lineageTag: a5ca61dc-99dc-4eac-ac09-f013e66f363f
-		summarizeBy: sum
-		sourceColumn: penalty_scored
-
-		annotation SummarizationSetBy = Automatic
-
-	column attempts
-		dataType: int64
-		formatString: 0
-		lineageTag: ce285cab-b65f-44ec-a308-ecc8e5cd3f20
-		summarizeBy: sum
-		sourceColumn: attempts
-
-		annotation SummarizationSetBy = Automatic
-
-	column attempts_on_target
-		dataType: int64
-		formatString: 0
-		lineageTag: d82a1b05-c078-4cde-b215-f23947e570c5
-		summarizeBy: sum
-		sourceColumn: attempts_on_target
-
-		annotation SummarizationSetBy = Automatic
-
-	column attempts_off_target
-		dataType: int64
-		formatString: 0
-		lineageTag: db186b4a-6b60-4c10-b59f-4acd7a240983
-		summarizeBy: sum
-		sourceColumn: attempts_off_target
-
-		annotation SummarizationSetBy = Automatic
-
-	column attempts_blocked
-		dataType: int64
-		formatString: 0
-		lineageTag: 1388fac7-a766-445f-ae7a-ffc08d25a71b
-		summarizeBy: sum
-		sourceColumn: attempts_blocked
-
-		annotation SummarizationSetBy = Automatic
-
-	column passes_accuracy
-		dataType: double
-		lineageTag: 11ec2641-bb19-4a64-ad6b-687465e3d6b2
-		summarizeBy: sum
-		sourceColumn: passes_accuracy
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column passes_attempted
-		dataType: int64
-		formatString: 0
-		lineageTag: c132b26f-3919-447b-91a2-f23f95f9f6d6
-		summarizeBy: sum
-		sourceColumn: passes_attempted
-
-		annotation SummarizationSetBy = Automatic
-
-	column passes_completed
-		dataType: int64
-		formatString: 0
-		lineageTag: dd65b3d1-1576-45b1-9bda-932640f898d4
-		summarizeBy: sum
-		sourceColumn: passes_completed
-
-		annotation SummarizationSetBy = Automatic
-
-	column cross_accuracy
-		dataType: double
-		lineageTag: cf1ae961-5188-4993-995e-5d8da9cfc8fe
-		summarizeBy: sum
-		sourceColumn: cross_accuracy
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column cross_attempted
-		dataType: int64
-		formatString: 0
-		lineageTag: 8b7fe45f-5caf-4370-b8c1-9298bf4d3a73
-		summarizeBy: sum
-		sourceColumn: cross_attempted
-
-		annotation SummarizationSetBy = Automatic
-
-	column cross_completed
-		dataType: int64
-		formatString: 0
-		lineageTag: 142fd57b-f4c5-4b4a-8847-93075cd3132c
-		summarizeBy: sum
-		sourceColumn: cross_completed
-
-		annotation SummarizationSetBy = Automatic
-
-	column free_kick
-		dataType: int64
-		formatString: 0
-		lineageTag: f1a2d766-60b1-42d5-bf43-4892f37d326d
-		summarizeBy: sum
-		sourceColumn: free_kick
-
-		annotation SummarizationSetBy = Automatic
-
-	column corners
-		dataType: int64
-		formatString: 0
-		lineageTag: c8149824-d519-4b81-9b59-6e00a54ba26e
-		summarizeBy: sum
-		sourceColumn: corners
-
-		annotation SummarizationSetBy = Automatic
-
-	column offsides
-		dataType: int64
-		formatString: 0
-		lineageTag: 67be61af-4394-4158-a1b5-b3206822907c
-		summarizeBy: sum
-		sourceColumn: offsides
-
-		annotation SummarizationSetBy = Automatic
-
-	column recovered_ball
-		dataType: int64
-		formatString: 0
-		lineageTag: 2712b288-3d3b-411c-a9ec-d3185541f38b
-		summarizeBy: sum
-		sourceColumn: recovered_ball
-
-		annotation SummarizationSetBy = Automatic
-
-	column tackles
-		dataType: int64
-		formatString: 0
-		lineageTag: 7dd1600e-607b-4a67-ab1a-5323b21d5bde
-		summarizeBy: sum
-		sourceColumn: tackles
-
-		annotation SummarizationSetBy = Automatic
-
-	column clearance_attempted
-		dataType: int64
-		formatString: 0
-		lineageTag: 56f9093f-6eed-4321-9d37-470000baf520
-		summarizeBy: sum
-		sourceColumn: clearance_attempted
-
-		annotation SummarizationSetBy = Automatic
-
-	column saves
-		dataType: int64
-		formatString: 0
-		lineageTag: 65392adb-e072-4d6f-8995-6f807939bd0c
-		summarizeBy: sum
-		sourceColumn: saves
-
-		annotation SummarizationSetBy = Automatic
-
-	column goals_conceded
-		dataType: int64
-		formatString: 0
-		lineageTag: 2e1ec3e8-e2f3-478f-8f83-fd84b035515b
-		summarizeBy: sum
-		sourceColumn: goals_conceded
-
-		annotation SummarizationSetBy = Automatic
-
-	column saves_on_penalty
-		dataType: int64
-		formatString: 0
-		lineageTag: 1fecbaf9-a6f8-4a7d-be9a-7fd58b1e9f18
-		summarizeBy: sum
-		sourceColumn: saves_on_penalty
-
-		annotation SummarizationSetBy = Automatic
-
-	column clean_sheet
-		dataType: int64
-		formatString: 0
-		lineageTag: 803a0115-977b-4148-aead-be8c4af42b63
-		summarizeBy: sum
-		sourceColumn: clean_sheet
-
-		annotation SummarizationSetBy = Automatic
-
-	column punches
-		dataType: int64
-		formatString: 0
-		lineageTag: 209afe8b-e852-41b6-adfd-9a464434f6d4
-		summarizeBy: sum
-		sourceColumn: punches
-
-		annotation SummarizationSetBy = Automatic
-
-	column fouls_committed
-		dataType: int64
-		formatString: 0
-		lineageTag: a5b636e9-98d1-411c-91ff-da2784391f00
-		summarizeBy: sum
-		sourceColumn: fouls_committed
-
-		annotation SummarizationSetBy = Automatic
-
-	column fouls_suffered
-		dataType: int64
-		formatString: 0
-		lineageTag: 8c8cc625-7e03-4ec8-811e-69b46e0195f5
-		summarizeBy: sum
-		sourceColumn: fouls_suffered
-
-		annotation SummarizationSetBy = Automatic
-
-	column yellow_cards
-		dataType: int64
-		formatString: 0
-		lineageTag: e8ad64c7-f211-448e-a123-268d4289c74f
-		summarizeBy: sum
-		sourceColumn: yellow_cards
-
-		annotation SummarizationSetBy = Automatic
-
-	column red_cards
-		dataType: int64
-		formatString: 0
-		lineageTag: 7618e81a-f352-478e-8cb1-be7d1c4f9772
-		summarizeBy: sum
-		sourceColumn: red_cards
-
-		annotation SummarizationSetBy = Automatic
-
-	partition players_summary = m
+	partition fact_player_stats = m
 		mode: import
 		source =
 				let
@@ -405,9 +99,11 @@ table players_summary
 				    #"Nahrazená hodnota9" = Table.ReplaceValue(#"Změněný typ7",".",",",Replacer.ReplaceText,{"cross_accuracy"}),
 				    #"Změněný typ8" = Table.TransformColumnTypes(#"Nahrazená hodnota9",{{"cross_accuracy", type number}}),
 				    #"Nahrazená hodnota10" = Table.ReplaceValue(#"Změněný typ8",".",",",Replacer.ReplaceText,{"cross_attempted", "cross_completed", "free_kick", "corners", "offsides", "recovered_ball", "tackles", "clearance_attempted", "saves", "goals_conceded", "saves_on_penalty", "clean_sheet", "punches", "fouls_committed", "fouls_suffered", "yellow_cards", "red_cards"}),
-				    #"Změněný typ9" = Table.TransformColumnTypes(#"Nahrazená hodnota10",{{"cross_attempted", Int64.Type}, {"cross_completed", Int64.Type}, {"free_kick", Int64.Type}, {"corners", Int64.Type}, {"offsides", Int64.Type}, {"recovered_ball", Int64.Type}, {"tackles", Int64.Type}, {"clearance_attempted", Int64.Type}, {"saves", Int64.Type}, {"goals_conceded", Int64.Type}, {"saves_on_penalty", Int64.Type}, {"clean_sheet", Int64.Type}, {"punches", Int64.Type}, {"fouls_committed", Int64.Type}, {"fouls_suffered", Int64.Type}, {"yellow_cards", Int64.Type}, {"red_cards", Int64.Type}})
+				    #"Změněný typ9" = Table.TransformColumnTypes(#"Nahrazená hodnota10",{{"cross_attempted", Int64.Type}, {"cross_completed", Int64.Type}, {"free_kick", Int64.Type}, {"corners", Int64.Type}, {"offsides", Int64.Type}, {"recovered_ball", Int64.Type}, {"tackles", Int64.Type}, {"clearance_attempted", Int64.Type}, {"saves", Int64.Type}, {"goals_conceded", Int64.Type}, {"saves_on_penalty", Int64.Type}, {"clean_sheet", Int64.Type}, {"punches", Int64.Type}, {"fouls_committed", Int64.Type}, {"fouls_suffered", Int64.Type}, {"yellow_cards", Int64.Type}, {"red_cards", Int64.Type}}),
+				    #"Odebrané sloupce1" = Table.RemoveColumns(#"Změněný typ9",{"top_speed", "distance_covered", "goals_scored_with_right", "goals_scored_with_left", "goals_scored_head", "goals_scored_other", "goals_scored_inside_penalty_area", "goals_scored_outside_penalty_area", "penalty_scored", "attempts", "attempts_on_target", "attempts_off_target", "attempts_blocked", "passes_accuracy", "passes_attempted", "passes_completed", "cross_accuracy", "cross_attempted", "cross_completed", "free_kick", "corners", "offsides", "recovered_ball", "tackles", "clearance_attempted", "saves", "goals_conceded", "saves_on_penalty", "clean_sheet", "punches", "fouls_committed", "fouls_suffered", "yellow_cards", "red_cards"}),
+				    #"Změněný typ10" = Table.TransformColumnTypes(#"Odebrané sloupce1",{{"minutes_played_official", Int64.Type}})
 				in
-				    #"Změněný typ9"
+				    #"Změněný typ10"
 
 	annotation PBI_NavigationStepName = Navigace
 

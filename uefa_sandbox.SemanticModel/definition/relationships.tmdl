@@ -5,6 +5,6 @@ relationship a829bfe1-37f8-7b32-9c0f-3c792ee72edb
 	toColumn: dim_team.team_id
 
 relationship AutoDetected_b637d32e-c9bf-401b-bf95-e85a0a3b3395
-	fromColumn: players_summary.team_id
+	fromColumn: fact_player_stats.team_id
 	toColumn: dim_team.team_id
 
