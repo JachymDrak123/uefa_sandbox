@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "uefa_sandbox"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "92367587-212f-4946-9f51-173a7e100db3"
+  }
+}

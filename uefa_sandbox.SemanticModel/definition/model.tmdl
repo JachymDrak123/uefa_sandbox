@@ -1,0 +1,15 @@
+model Model
+	culture: cs-CZ
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: cs-CZ
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref cultureInfo cs-CZ
+
